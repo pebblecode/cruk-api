@@ -63,7 +63,7 @@ if (program.data && program.dictionary) {
 
   });
 
-  const dataPathReplaced = dataPath.replace(".json", "")
+  const dataPathReplaced = dataPath.replace('.json', '');
 
   fs.writeFileSync(`${dataPathReplaced}-processed.json`, JSON.stringify(newDocuments));
 

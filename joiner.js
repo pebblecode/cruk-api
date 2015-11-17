@@ -13,12 +13,14 @@ program
  
 if(program.cancer && program.patients && program.stages){
 
-  const cancer = require(program.cancer);
+  let cancer = require(program.cancer);
   const patients = require(program.patients);
   const stages = require(program.stages);
 
-  patients.forEach((subset) => addSubset(cancer, subset, 'patients'));
-  stages.forEach((subset) => addSubset(cancer, subset, 'stages'));
+  cancer.forEach(c => {
+    patients.forEach((p) => addProperty(c, p, 'patients'));
+    stages.forEach((s) => addProperty(c, s, 'stages'));
+  });
 
   fs.writeFileSync('output.json', JSON.stringify(cancer));
 
@@ -29,7 +31,8 @@ if(program.cancer && program.patients && program.stages){
   process.exit(1);
 }
 
-function addSubset(superset, subset, propName) {
-  if(subset.ccg === superset.ccg)
-    superset[propName] = subset;
+function addProperty(doc, subDoc, propName) {
+  if(subDoc.ccg === doc.ccg){
+    doc[propName] = subDoc;
+  }
 }
