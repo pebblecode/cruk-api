@@ -6,6 +6,7 @@ export default function register(server, options, next) {
   mongoose.connect('mongodb://localhost/cruk');
 
   server.method('Hospital', require('./hospital'));
+  server.method('City', require('./city'));
 
   next();
 

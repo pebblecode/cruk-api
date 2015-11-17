@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
 
 const hospitalSchema = new Schema({
   'CCG Name': String,
@@ -16,7 +15,7 @@ const hospitalSchema = new Schema({
   'diagnostic': Number,
   'emergency routes': Number,
   'screening': Number,
-  'awareness': Number,
+  'awareness': Number
 });
 
 const Hospital = mongoose.model('Hospital', hospitalSchema);
