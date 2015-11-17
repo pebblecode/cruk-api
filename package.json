@@ -13,10 +13,10 @@
     "test": "node_modules/.bin/mocha test/ --recursive --compilers js:babel/register",
     "test:watch": "npm run test -- --watch",
     "coverage": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha -- --compilers js:babel/register --colors --reporter dot test/",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run compile",
+    "dev": "nodemon --exec babel-node -- src/index.js"
   },
-  "keywords": [
-  ],
+  "keywords": [],
   "author": {
     "name": "PebbleCode",
     "email": "opensource@pebblecode.com",
@@ -24,9 +24,10 @@
   },
   "license": "MIT",
   "dependencies": {
+    "glue": "^2.4.0"
   },
   "devDependencies": {
-    "babel": "^5.x.x",
+    "babel": "^5.8.34",
     "babel-eslint": "^4.1.5",
     "chai": "^2.1.1",
     "eslint": "^1.9.0",
@@ -34,10 +35,11 @@
     "eslint-plugin-react": "^3.8.0",
     "istanbul": "^0.4.0",
     "mocha": "^2.2.1",
+    "nodemon": "^1.8.1",
     "pre-commit": "^1.0.6"
   },
-  "engines":{
-    "node":"4.x.x",
+  "engines": {
+    "node": "4.x.x",
     "npm": "2.x.x"
   }
 }
