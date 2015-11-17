@@ -1,7 +1,7 @@
 'use strict'
 
 const program = require('commander');
-const mapObj = require('map-obj');
+const fs = require('fs');
 
 program
   .version('0.0.1')
@@ -41,7 +41,7 @@ if(program.data && program.dictionary){
 
   });
 
-  console.log(newDocuments);
+  fs.writeFileSync(`${dataPath}-processed.json`, JSON.stringify(newDocuments));
 
   process.exit(0);
 
