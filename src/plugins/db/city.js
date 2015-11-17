@@ -2,20 +2,20 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
-const citySchema = new Schema({  
-    wikipedia: String,
-    city: String,
-    lat: Number,
-    lon: Number,
-    loc: {
-      type: [Number],  // [<longitude>, <latitude>]
-      index: '2d'      // create the geospatial index
-    }
+const citySchema = new Schema({
+  wikipedia: String,
+  city: String,
+  lat: Number,
+  lon: Number,
+  loc: {
+    type: [Number], // [<longitude>, <latitude>]
+    index: '2d' // create the geospatial index
+  }
 });
 
 citySchema.pre('save', (next) => {
   this.loc = [this.lat, this.lon];
-  next()
+  next();
 });
 
 const City = mongoose.model('City', citySchema);
