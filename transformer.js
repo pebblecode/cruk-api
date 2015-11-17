@@ -2,6 +2,7 @@
 
 const program = require('commander');
 const fs = require('fs');
+const camelCase = require('camelcase');
 
 program
   .version('0.0.1')
@@ -36,6 +37,15 @@ if(program.data && program.dictionary){
       }
 
     });
+
+    for (let k in newDoc) {
+      if(newDoc.hasOwnProperty(k)){
+        let newK = camelCase(k);
+
+        newDoc[newK] = newDoc[k];
+        delete newDoc[k];
+      }
+    }
 
     newDocuments.push(newDoc);
 
