@@ -15,4 +15,9 @@ Babel Transpile `npm run compile`
 
 ### Project Description
 
- 
+### MongoDB Install
+DB Name: cruk
+Collections: hospitals
+
+If you have issues running Mongo in OS X (it sometimes complains about opening /data/db/mongod.lock), you may need to chown the dir. This is as simple as:
+`sudo chown -R `id -u` /data/db`
