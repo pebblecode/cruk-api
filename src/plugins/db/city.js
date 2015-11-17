@@ -5,6 +5,10 @@ const Schema = mongoose.Schema;
 const citySchema = new Schema({
   wikipedia: String,
   city: String,
+  geo: {
+    lat: Number,
+    lon: Number
+  },
   lat: Number,
   lon: Number,
   loc: {
