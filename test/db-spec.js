@@ -5,4 +5,4 @@ import Hospital from '../src/plugins/db';
 
 // const Hospital = require('../lib/db.js').Hospital;
 
-Hospital.find({}, (err, coll) => console.log(err, coll));
+// Hospital.find({}, (err, coll) => console.log(err, coll));
