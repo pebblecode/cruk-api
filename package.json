@@ -12,6 +12,7 @@
     "lint": "eslint --ext .js --ext .jsx ./ && echo No linting errors.",
     "test": "node_modules/.bin/mocha test/ --recursive --compilers js:babel/register",
     "test:watch": "npm run test -- --watch",
+    "normalise": "node_modules/.bin/mocha import.js --compilers js:babel/register",
     "coverage": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha -- --compilers js:babel/register --colors --reporter dot test/",
     "prepublish": "npm run compile",
     "dev": "nodemon --exec babel-node -- src/index.js",
@@ -30,6 +31,7 @@
     "boom": "^3.0.0",
     "debug": "^2.2.0",
     "glue": "^2.4.0",
+    "lodash": "^3.10.1",
     "mongoose": "^4.2.6"
   },
   "devDependencies": {
