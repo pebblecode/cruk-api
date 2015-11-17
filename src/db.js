@@ -23,6 +23,26 @@ const hospitalSchema = new Schema({
 	'awareness': Number,
 });
 
-const Hospital = mongoose.model('Hospital', hospitalSchema);
+var citySchema = new Schema({  
+    wikipedia: String,
+    city: String,
+    lat: Number,
+    lon: Number,
+    loc: {
+	    type: [Number],  // [<longitude>, <latitude>]
+	    index: '2d'      // create the geospatial index
+    }
+});
 
-export default Hospital;
+citySchema.pre('save', (next) => {
+	this.loc = [this.lat, this.lon];
+	next()
+});
+
+const Hospital = mongoose.model('Hospital', hospitalSchema);
+const City = mongoose.model('City', citySchema);
+
+module.exports = {
+	Hospital,
+	City,
+}
