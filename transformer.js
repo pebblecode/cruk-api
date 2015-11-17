@@ -9,9 +9,10 @@ program
   .option('-i, --data [value]', 'input data json')
   .option('-d, --dictionary [value]', 'input data dictionary, mapping file of sourceKey and newKey')
   .option('-o, --output [output]', 'output filename')
+  .option('-c, --camel', 'camelcase')
   .parse(process.argv);
- 
-if(program.data && program.dictionary){
+
+if (program.data && program.dictionary) {
 
   const dataPath = program.data,
     dictionaryPath = program.dictionary;
@@ -22,14 +23,14 @@ if(program.data && program.dictionary){
   const dictKeys = Object.keys(dictionary);
 
   var newDocuments = [];
-  
-  documents.forEach(function(doc){
+
+  documents.forEach(function(doc) {
 
     var newDoc = {};
 
-    dictKeys.forEach(function(dictKey){
+    dictKeys.forEach(function(dictKey) {
 
-      if(doc[dictKey]){
+      if (doc[dictKey]) {
         newDoc = doc;
         doc[dictionary[dictKey]] = doc[dictKey];
 
@@ -39,8 +40,15 @@ if(program.data && program.dictionary){
     });
 
     for (let k in newDoc) {
-      if(newDoc.hasOwnProperty(k)){
-        let newK = camelCase(k);
+      if (newDoc.hasOwnProperty(k)) {
+
+        let newK;
+
+        if (program.camel) {
+          newK = camelCase(k);
+        }else{
+          newK = k.toLowerCase();
+        }
 
         newDoc[newK] = newDoc[k];
         delete newDoc[k];
@@ -51,11 +59,13 @@ if(program.data && program.dictionary){
 
   });
 
-  fs.writeFileSync(`${dataPath}-processed.json`, JSON.stringify(newDocuments));
+  const dataPathReplaced = dataPath.replace(".json", "")
+
+  fs.writeFileSync(`${dataPathReplaced}-processed.json`, JSON.stringify(newDocuments));
 
   process.exit(0);
 
-}else{
+} else {
   console.error('Invalid arguments, use --help for usage');
   process.exit(1);
 }
