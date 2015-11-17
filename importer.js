@@ -1,4 +1,7 @@
+'use strict'
+
 const program = require('commander');
+const mapObj = require('map-obj');
 
 program
   .version('0.0.1')
@@ -12,14 +15,34 @@ if(program.data && program.dictionary){
   const dataPath = program.data,
     dictionaryPath = program.dictionary;
 
-  const data = require(dataPath),
+  const documents = require(dataPath),
     dictionary = require(dictionaryPath);
 
-  
+  const dictKeys = Object.keys(dictionary);
 
-  console.log(data);
-  console.log(dictionary);
+  var newDocuments = [];
   
+  documents.forEach(function(doc){
+
+    var newDoc = {};
+
+    dictKeys.forEach(function(dictKey){
+
+      if(doc[dictKey]){
+        newDoc = doc;
+        doc[dictionary[dictKey]] = doc[dictKey];
+
+        delete doc[dictKey];
+      }
+
+    });
+
+    newDocuments.push(newDoc);
+
+  });
+
+  console.log(newDocuments);
+
   process.exit(0);
 
 }else{

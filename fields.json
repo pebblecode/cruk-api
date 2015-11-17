@@ -1,5 +1,6 @@
 {
-	"CCG Code" : "ccg",
-	"CCG Name" : "name",
-	"1yr Survival Rate" : "oneYearSurvivalRate",
+	"CCG Code": "ccg",
+	"CCG Name": "name",
+	"1yr Survival Rate": "oneYearSurvivalRate",
+	"Deaths": "deaths"
 }
