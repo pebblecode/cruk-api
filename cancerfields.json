@@ -1,9 +1,9 @@
 {
-	"CCG Code": "Ccg",
-	"CCG_CODE": "Ccg",
-	"CCG Name": "Name",
-	"1yr Survival Rate": "OneYearSurvivalRate",
-	"1st treatment": "FirstTreatment",
-	"CI lower (%)": "CILower",
-	"CI upper (%)": "CIUpper"
+	"CCG Code": "ccg",
+	"CCG_CODE": "ccg",
+	"CCG Name": "name",
+	"1yr Survival Rate": "oneYearSurvivalRate",
+	"1st treatment": "firstTreatment",
+	"CI lower (%)": "ciLower",
+	"CI upper (%)": "ciUpper"
 }

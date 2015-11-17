@@ -26,15 +26,18 @@ if (program.data && program.dictionary) {
 
   documents.forEach(function(doc) {
 
-    var newDoc = {};
+    var newDoc = {},
+        matchedKeys = {};
 
-    dictKeys.forEach(function(dictKey) {
+    dictKeys.forEach(function(key) {
 
-      if (doc[dictKey]) {
+      if (doc[key]) {
         newDoc = doc;
-        doc[dictionary[dictKey]] = doc[dictKey];
+        doc[dictionary[key]] = doc[key];
 
-        delete doc[dictKey];
+        matchedKeys[dictionary[key]] = true;
+
+        delete doc[key];
       }
 
     });
@@ -43,15 +46,16 @@ if (program.data && program.dictionary) {
       if (newDoc.hasOwnProperty(k)) {
 
         let newK;
-
-        if (program.camel) {
-          newK = camelCase(k);
-        }else{
-          newK = k.toLowerCase();
+        
+        if(!matchedKeys[k]){
+          if (program.camel) {
+            newK = camelCase(k);
+          }else{
+            newK = k.toLowerCase();
+          }
+          newDoc[newK] = newDoc[k];
+          delete newDoc[k];
         }
-
-        newDoc[newK] = newDoc[k];
-        delete newDoc[k];
       }
     }
 
