@@ -3,7 +3,7 @@ export default function register(server, options, next) {
   server.route({
     method: 'GET',
     path: '/',
-    handler: require('./root')
+    handler: require('./root')(server)
   });
 
   next();
@@ -11,5 +11,8 @@ export default function register(server, options, next) {
 
 
 register.attributes = {
-  pkg: require('./package.json')
+  pkg: {
+    name: 'cruk-api-routes',
+    version: '1.0.0'
+  }
 };

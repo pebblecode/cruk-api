@@ -7,13 +7,16 @@ const manifest = {
   connections: [{
     port: process.env.PORT || 3000
   }],
-  plugins: [{
-    './api': [{
-      routes: {
-        prefix: '/api'
-      }
-    }]
-  }]
+  plugins: [
+    {
+      './api': [{
+        routes: {
+          prefix: '/api'
+        }
+      }]
+    },
+    {'./db': null}
+  ]
 };
 
 const options = {
