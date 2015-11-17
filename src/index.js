@@ -5,20 +5,19 @@ const logger = debug('http');
 
 const manifest = {
   connections: [{
-    port: process.env.PORT || 3000,
-    labels: ['web']
+    port: process.env.PORT || 3000
   }],
-  plugins: [
-    // {
-    //   './api': [{
-    //     select: ['web']
-    //   }]
-    // }
-  ]
+  plugins: [{
+    './api': [{
+      routes: {
+        prefix: '/api'
+      }
+    }]
+  }]
 };
 
 const options = {
-  relativeTo: __dirname
+  relativeTo: __dirname + '/plugins'
 };
 
 Glue.compose(manifest, options, (err, server) => {
