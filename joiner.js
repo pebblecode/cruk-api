@@ -14,11 +14,6 @@ program
 function addProperty(doc, subDoc, propName) {
   if (subDoc.ccg === doc.ccg) {
     doc[propName] = subDoc;
-
-    if (propName === 'stages') {
-      console.log('stages being added');
-      console.log(doc[propName]);
-    }
   }
 }
 
@@ -38,6 +33,7 @@ if (program.cancer && program.patients && program.stages) {
   process.exit(0);
 
 } else {
+  /* eslint no-console: 0*/
   console.error('Invalid arguments, use --help for usage');
   process.exit(1);
 }
