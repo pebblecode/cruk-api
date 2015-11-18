@@ -33,9 +33,7 @@
     "glue": "^2.4.0",
     "lodash": "^3.10.1",
     "map-obj": "^1.0.1",
-    "mongoose": "^4.2.6"
-  },
-  "devDependencies": {
+    "mongoose": "^4.2.6",
     "babel": "^5.8.34",
     "babel-eslint": "^4.1.5",
     "camelcase": "^2.0.1",
