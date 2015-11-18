@@ -19,6 +19,7 @@
     "dev": "nodemon --exec babel-node -- src/index.js",
     "dev:debug": "babel-node-debug src/index.js",
     "import": "mongoimport --jsonArray --db cruk --file output.json --collection ccgs",
+    "import-live": "mongoimport -h ds055584.mongolab.com:55584 -d heroku_9rvwxmvz -c ccgs -u heroku_9rvwxmvz -p 4n361h6g6amq8t21kimh27nt0u --file output.json --jsonArray",
     "start": "node lib/index.js"
   },
   "keywords": [],

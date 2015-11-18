@@ -5,7 +5,8 @@ const logger = debug('http');
 
 const manifest = {
   connections: [{
-    port: process.env.PORT || 3000
+    port: process.env.PORT || 3000,
+    routes: {cors: true}
   }],
   plugins: [
     {
