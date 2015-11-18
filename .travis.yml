@@ -1,6 +1,6 @@
 sudo: false
 env:
-  - CXX=g++-4.8
+- CXX=g++-4.8
 language: node_js
 node_js:
 - '4.0'
@@ -10,10 +10,10 @@ deploy:
   provider: heroku
   on:
     branch: master
-  api_key:
-    secure: QgdI23f0DLlOUAbJ8Q3y5JZF/SEU/DLGLNmDKqeKJ+8UbPd5q1+sIPWChSiSoKfrvApZz4oUI5fMSSCz/IL+yM/gwZfQ/9gvNDZRxDQW0uNRhP/fPiyqK90us8wMSdHsBuW7bGpldFmdlMtjwqFy8WC5JB0mjuLLBL8Fm15zGMnTNQXYpJvGlQmhuJoBFPrsld/VgMVnXNdofrbE68h+lsPJfNDrZWEUBF+zGMXpotuO2J6piz7M4uVO6zGML3zE+C9Lwt6weLhjCzkimTqOkhCS5VObn+C8JfUI91d1HaV9Fj1ZsNPEqY2VWtqt2Op/KpHQkC/uLxBv9TAh6k2RyirjtZsiBco41O3AWndItFO6V/hNOS8cFER8rf/zKgkTy1cjK6VxlqmkZiS07Rsj/fFDz//u51V3BumT+ldi2f28DIws4iFI7FvxDzsuTdh3c1izOtqfmEc0H/jB3juWcE4jT9zIV0v3UqyyJpFyai1nRt36fXNYjwLM44AfG2g3AL57FHEz+b4O/Vpcckb93sE05UFnZY9xugNCBnPBASmktQ1FwbNUjFXNd3TYh1VmLFbX1+zUTXxYyUL5+gpZJIxVhXYwmp38mZkHB1DhycrBKPGtBm9jmpx7t1QbRgh+wjw3wAUfXj6xzF8NTtGk+SK/r8XTBescLoe4NUDIKBY=
   app:
     master: pebblecode-cruk-api
+  api_key:
+    secure: a79+iu9uAWx6/VB/e2/vaQQAYHjJEa+ngiCC65bXaOKXn/U3ccuXe4KMbKmcTUXTe/aE6H/jarnuToEHBvTtbif/GDx1xK0x6gfTg6AicrRpjUme7fgU6AihcoMSGCyOzDi/FhiqB2ejpRwdQVMroPCGFZJ0VKnKBtl5qxYI6P3QBrk8KEX6DQl0IRb81BGP0UKnX07ShW/qEOZ7DW+0/5q7YRmH0h1YtJ4OnSYVmrZq8wm8QuhbWIe+eaGMaSn0VdH6Y10sjwBYnmt1K105Z8WHpoTBAG7TlDLzpnfWpgt+CcbrFK0p8qkiCRNcnOjB0OkELe9Hk0Di2klm8CBY8tYO+8udfYOFbSkAni2hGlqBTWxPANiTnTSpY4kfKi3dhkO66VmYnFRijphHZYJdM3oZTmXCBMg3ACPtoSsftbKmbxH8tjC9jo4226A7ae6VxUDhL3OYiMeTQNl2/h9+k9pEnxTb9THTxI48gnFGuoCo4B2f++aiuvBIpTXPWq34+V6yOEQWzXHhtxlzJq3CWqbEaZa352B9lSKIe2mh6/+oW3dvibsgAYfKnFtS6M2/yRyQw5BeiWyaEurVnIVW37w1/eDCALlCikL3d6uhGybDEVKRhEAdts6bhcrUubz0vXnMtV9BoJB4cB9HX60TRYKyouzPuOwj0eTdhRvuZlg=
 addons:
   apt:
     sources:
