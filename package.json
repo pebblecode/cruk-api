@@ -15,6 +15,7 @@
     "normalise": "node_modules/.bin/mocha import.js --compilers js:babel/register",
     "coverage": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha -- --compilers js:babel/register --colors --reporter dot test/",
     "prepublish": "npm run compile",
+    "postinstall": "npm run compile",
     "dev": "nodemon --exec babel-node -- src/index.js",
     "dev:debug": "babel-node-debug src/index.js",
     "import": "mongoimport --jsonArray --db cruk --file output.json --collection ccgs",
