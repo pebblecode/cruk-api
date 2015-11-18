@@ -1,8 +1,7 @@
-'use strict'
+'use strict';
 
 const program = require('commander');
 const fs = require('fs');
-const camelCase = require('camelcase');
 
 program
   .version('0.0.1')
@@ -10,10 +9,22 @@ program
   .option('-p, --patients [value]', 'input patients json')
   .option('-s, --stages [value]', 'input stages json')
   .parse(process.argv);
- 
-if(program.cancer && program.patients && program.stages){
 
-  let cancer = require(program.cancer);
+
+function addProperty(doc, subDoc, propName) {
+  if (subDoc.ccg === doc.ccg) {
+    doc[propName] = subDoc;
+
+    if (propName === 'stages') {
+      console.log('stages being added');
+      console.log(doc[propName]);
+    }
+  }
+}
+
+if (program.cancer && program.patients && program.stages) {
+
+  const cancer = require(program.cancer);
   const patients = require(program.patients);
   const stages = require(program.stages);
 
@@ -26,13 +37,7 @@ if(program.cancer && program.patients && program.stages){
 
   process.exit(0);
 
-}else{
+} else {
   console.error('Invalid arguments, use --help for usage');
   process.exit(1);
-}
-
-function addProperty(doc, subDoc, propName) {
-  if(subDoc.ccg === doc.ccg){
-    doc[propName] = subDoc;
-  }
 }

@@ -1,18 +1,17 @@
 export default function register(server, options, next) {
 
-  const hospitals = require('./hospitals')(server);
-  const cities = require('./cities')(server);
+  const ccg = require('./ccg')(server);
 
   server.route({
     method: 'GET',
-    path: '/hospitals',
-    handler: hospitals.get
+    path: '/ccg/{ccgCode}',
+    handler: ccg.get
   });
 
   server.route({
     method: 'GET',
-    path: '/cities',
-    handler: cities.get
+    path: '/ccg',
+    handler: ccg.getAll
   });
 
   next();

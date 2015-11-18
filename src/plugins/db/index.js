@@ -5,8 +5,7 @@ export default function register(server, options, next) {
   // TODO set by config in options.
   mongoose.connect('mongodb://localhost/cruk');
 
-  server.method('Hospital', require('./hospital'));
-  server.method('City', require('./city'));
+  server.method('Ccg', require('./ccg'));
 
   next();
 
