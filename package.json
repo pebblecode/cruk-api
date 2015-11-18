@@ -17,7 +17,7 @@
     "prepublish": "npm run compile",
     "dev": "nodemon --exec babel-node -- src/index.js",
     "dev:debug": "babel-node-debug src/index.js",
-    "import": "mongoimport --jsonArray --db cruk hospitals.json",
+    "import": "mongoimport --jsonArray --db cruk --file output.json --collection ccgs",
     "start": "node lib/index.js"
   },
   "keywords": [],
