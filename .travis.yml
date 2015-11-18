@@ -1,4 +1,23 @@
+sudo: false
+env:
+- CXX=g++-4.8
 language: node_js
 node_js:
-  - "0.10"
-  - "4.2"
+- '4.0'
+- '4.1'
+- '4.2'
+deploy:
+  provider: heroku
+  on:
+    branch: master
+  app:
+    master: pebblecode-cruk-api
+  api_key:
+    secure: a79+iu9uAWx6/VB/e2/vaQQAYHjJEa+ngiCC65bXaOKXn/U3ccuXe4KMbKmcTUXTe/aE6H/jarnuToEHBvTtbif/GDx1xK0x6gfTg6AicrRpjUme7fgU6AihcoMSGCyOzDi/FhiqB2ejpRwdQVMroPCGFZJ0VKnKBtl5qxYI6P3QBrk8KEX6DQl0IRb81BGP0UKnX07ShW/qEOZ7DW+0/5q7YRmH0h1YtJ4OnSYVmrZq8wm8QuhbWIe+eaGMaSn0VdH6Y10sjwBYnmt1K105Z8WHpoTBAG7TlDLzpnfWpgt+CcbrFK0p8qkiCRNcnOjB0OkELe9Hk0Di2klm8CBY8tYO+8udfYOFbSkAni2hGlqBTWxPANiTnTSpY4kfKi3dhkO66VmYnFRijphHZYJdM3oZTmXCBMg3ACPtoSsftbKmbxH8tjC9jo4226A7ae6VxUDhL3OYiMeTQNl2/h9+k9pEnxTb9THTxI48gnFGuoCo4B2f++aiuvBIpTXPWq34+V6yOEQWzXHhtxlzJq3CWqbEaZa352B9lSKIe2mh6/+oW3dvibsgAYfKnFtS6M2/yRyQw5BeiWyaEurVnIVW37w1/eDCALlCikL3d6uhGybDEVKRhEAdts6bhcrUubz0vXnMtV9BoJB4cB9HX60TRYKyouzPuOwj0eTdhRvuZlg=
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.8
+    - g++-4.8

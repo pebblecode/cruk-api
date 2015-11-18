@@ -2,8 +2,8 @@ import mongoose from 'mongoose';
 
 export default function register(server, options, next) {
 
-  const url = process.env.MONGOLAB_URI || 'mongodb://localhost/cruk'
-  // TODO set by config in options.
+  const url = process.env.MONGOLAB_URI || 'mongodb://localhost/cruk';
+
   mongoose.connect(url);
 
   server.method('Ccg', require('./ccg'));

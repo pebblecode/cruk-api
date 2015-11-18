@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const program = require('commander');
 const fs = require('fs');
@@ -14,22 +14,22 @@ program
 
 if (program.data && program.dictionary) {
 
-  const dataPath = program.data,
-    dictionaryPath = program.dictionary;
+  const dataPath = program.data;
+  const dictionaryPath = program.dictionary;
 
-  const documents = require(dataPath),
-    dictionary = require(dictionaryPath);
+  const documents = require(dataPath);
+  const dictionary = require(dictionaryPath);
 
   const dictKeys = Object.keys(dictionary);
 
-  var newDocuments = [];
+  const newDocuments = [];
 
-  documents.forEach(function(doc) {
+  documents.forEach((doc) => {
 
-    var newDoc = {},
-        matchedKeys = {};
+    let newDoc = {};
+    const matchedKeys = {};
 
-    dictKeys.forEach(function(key) {
+    dictKeys.forEach((key) => {
 
       if (doc[key]) {
         newDoc = doc;
@@ -42,15 +42,15 @@ if (program.data && program.dictionary) {
 
     });
 
-    for (let k in newDoc) {
+    for (const k in newDoc) {
       if (newDoc.hasOwnProperty(k)) {
 
         let newK;
-        
-        if(!matchedKeys[k]){
+
+        if (!matchedKeys[k]) {
           if (program.camel) {
             newK = camelCase(k);
-          }else{
+          } else {
             newK = k.toLowerCase();
           }
           newDoc[newK] = newDoc[k];
@@ -70,6 +70,7 @@ if (program.data && program.dictionary) {
   process.exit(0);
 
 } else {
+  /* eslint no-console: 0*/
   console.error('Invalid arguments, use --help for usage');
   process.exit(1);
 }

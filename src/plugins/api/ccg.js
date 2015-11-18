@@ -8,9 +8,7 @@ export default function root(server) {
   function get(request, reply) {
     const ccg = request.params.ccgCode;
 
-    server.methods.Ccg.find({
-        ccg: ccg
-      })
+    server.methods.Ccg.find({ ccg: ccg })
       .then(ccgs => {
         reply(ccgs);
       }, err => {
@@ -33,9 +31,7 @@ export default function root(server) {
   function getFull(request, reply) {
     const ccg = request.params.ccgCode;
 
-    server.methods.Fullccg.find({
-        ccg: ccg
-      })
+    server.methods.Fullccg.find({ ccg: ccg })
       .then(ccgs => {
         reply(ccgs);
       }, err => {
@@ -47,6 +43,7 @@ export default function root(server) {
   function map(request, reply) {
     server.methods.Ccg.find()
       .then(ccgs => {
+
         const result = ccgs.map((ccg) => {
           return {
             ccg: ccg.ccg,
