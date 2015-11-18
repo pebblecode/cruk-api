@@ -5,18 +5,6 @@ const logger = debug('ccg');
 
 export default function root(server) {
 
-
-  function getAll(request, reply) {
-    server.methods.Ccg.find({})
-      .then(ccgs => {
-        reply(ccgs);
-      }, err => {
-        logger.error(err);
-        reply(Boom.badImplementation());
-      });
-
-  }
-
   function get(request, reply) {
     const ccg = request.params.ccgCode;
 
@@ -31,11 +19,34 @@ export default function root(server) {
       });
   }
 
-  function map(request, reply) {
+  function getAll(request, reply) {
+    server.methods.Ccg.find({})
+      .then(ccgs => {
+        reply(ccgs);
+      }, err => {
+        logger.error(err);
+        reply(Boom.badImplementation());
+      });
 
+  }
+
+  function getFull(request, reply) {
+    const ccg = request.params.ccgCode;
+
+    server.methods.Fullccg.find({
+        ccg: ccg
+      })
+      .then(ccgs => {
+        reply(ccgs);
+      }, err => {
+        logger.error(err);
+        reply(Boom.badImplementation());
+      });
+  }
+
+  function map(request, reply) {
     server.methods.Ccg.find()
       .then(ccgs => {
-
         const result = ccgs.map((ccg) => {
           return {
             ccg: ccg.ccg,
@@ -56,6 +67,7 @@ export default function root(server) {
   return {
     get,
     getAll,
+    getFull,
     map
   };
 
