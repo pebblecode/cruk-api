@@ -6,7 +6,7 @@ const logger = debug('ccg');
 export default function root(server) {
 
 
-  function get(request, reply) {
+  function getAll(request, reply) {
     server.methods.Ccg.find({})
     .then(ccgs => {
       reply(ccgs);
@@ -17,10 +17,10 @@ export default function root(server) {
 
   }
 
-  function getAll(request, reply){
+  function get(request, reply){
     const ccg = request.params.ccgCode;
 
-    server.methods.Ccg.find({ccg})
+    server.methods.Ccg.find({ccg:ccg})
     .then(ccgs => {
       reply(ccgs);
     }, err => {

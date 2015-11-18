@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
-const ccg = new Schema({ccg:String});
+const ccg = new Schema({ccg:String}, { strict: false });
 
 // ccg.pre('save', (next) => {
 //   this.loc = [this.lat, this.lon];
