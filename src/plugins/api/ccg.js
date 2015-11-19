@@ -38,7 +38,8 @@ export default function root(server) {
           ccg: ccg.ccg,
           mortalityRate: ccg.deaths / ccg.incidences,
           deaths: ccg.deaths,
-          incidences: ccg.incidences
+          incidences: ccg.incidences,
+          name: ccg.name
         };
       });
 
