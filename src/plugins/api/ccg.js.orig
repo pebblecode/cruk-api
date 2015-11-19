@@ -42,6 +42,19 @@ export default function root(server) {
 
   function map(request, reply) {
     server.methods.Ccg.find()
+<<<<<<< HEAD
+    .then(ccgs => {
+
+      const result = ccgs.map((ccg) => {
+        return {
+          ccg: ccg.ccg,
+          mortalityRate: ccg.deaths / ccg.incidences,
+          deaths: ccg.deaths,
+          incidences: ccg.incidences,
+          name: ccg.name
+        };
+      });
+=======
       .then(ccgs => {
 
         const result = ccgs.map((ccg) => {
@@ -49,10 +62,10 @@ export default function root(server) {
             ccg: ccg.ccg,
             mortalityRate: ccg.deaths / ccg.incidences,
             deaths: ccg.deaths,
-            incidences: ccg.incidences,
-            name: ccg.name
+            incidences: ccg.incidences
           };
         });
+>>>>>>> 8c724ef199cc29d08c4954ee211ceb371e08edb0
 
         reply(result);
       }, err => {

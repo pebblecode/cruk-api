@@ -7,6 +7,7 @@ export default function register(server, options, next) {
   mongoose.connect(url);
 
   server.method('Ccg', require('./ccg'));
+  server.method('Fullccg', require('./fullccg'));
 
   next();
 

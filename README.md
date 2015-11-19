@@ -93,18 +93,21 @@ Collections: hospitals
 
 data import notes:
 ```
-mongoimport -d test -c meta --type csv --headerline ./Data\ download\ Nov\ 2015.xlsx\ -\ Metadata.csv 
-mongoimport -d test -c data --type csv --headerline ./Data\ download\ Nov\ 2015.xlsx\ -\ Data.csv 
+mongoimport -d cruk -c meta --type csv --headerline ~/Downloads/Data\ download\ Nov\ 2015.xlsx\ -\ Metadata.csv 
+mongoimport -d cruk -c data --type csv --headerline ~/Downloads/Data\ download\ Nov\ 2015.xlsx\ -\ Data.csv 
 
-db.data.find({
-	"GeographyID" : ccg
-}).map(function(c) {
-    return {
-    	meta: db.meta.findOne({ "ElementID": c.IndicatorID }),
-    	cancer: db.ccgs.findOne({ "ccg": c.IndicatorID })
-        ccg: c,
-    }
-})
+db.fullccgs.insert(db.ccgs.find().map(function(c) {
+		c.data = db.data.find({
+			"GeographyID": c.ccg
+		}).toArray().map(function(indicator){
+			indicator.meta = db.meta.findOne({
+				"ElementID": indicator.IndicatorID
+			})
+			return indicator
+		})
+	    return c
+	})
+)
 ```
 
 If you have issues running Mongo in OS X (it sometimes complains about opening /data/db/mongod.lock), you may need to chown the dir. This is as simple as:

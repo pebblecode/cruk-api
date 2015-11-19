@@ -10,7 +10,7 @@ export default function register(server, options, next) {
 
   server.route({
     method: 'GET',
-    path: '/map',
+    path: '/ccg/map',
     handler: ccg.map
   });
 
@@ -18,6 +18,12 @@ export default function register(server, options, next) {
     method: 'GET',
     path: '/ccg',
     handler: ccg.getAll
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/ccg/{ccgCode}/full',
+    handler: ccg.getFull
   });
 
   next();
