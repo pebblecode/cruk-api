@@ -6,7 +6,10 @@ const ccg = new Schema({
   ccg: String,
   incidences: Number,
   deaths: Number,
-  name: String
+  name: String,
+  oneYearSurvivalRate: Number,
+  specialist: Number,
+  treatment: Number
 }, { strict: false });
 
 const Ccg = mongoose.model('Ccg', ccg);
