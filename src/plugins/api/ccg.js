@@ -53,7 +53,8 @@ export default function root(server) {
             oneYearSurvivalRate: ccg.oneYearSurvivalRate,
             specialist: ccg.specialist,
             firstTreatment: ccg.firstTreatment,
-            name: ccg.name
+            name: ccg.name,
+            population: ccg.patients.total_all
           };
         });
 
