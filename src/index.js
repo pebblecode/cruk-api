@@ -3,7 +3,6 @@ import debug from 'debug';
 
 const logger = debug('http');
 
-
 const manifest = {
   connections: [{
     port: process.env.PORT || 3000,
