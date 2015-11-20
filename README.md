@@ -109,6 +109,27 @@ db.fullccgs.insert(db.ccgs.find().map(function(c) {
 	})
 )
 ```
+comparing IMD and mortality rates:
+```
+db.comparison.insert(
+   db.fullccgs.find().map(function(fullccg){
+      var imd = fullccg.data.filter(function(i){
+         // print(JSON.stringify(i.IndicatorID))
+         return i.IndicatorID === 103
+      });
+
+      return {
+         IMD: imd[0] ? imd[0].Value : 'Unknown',
+         mortalityRate: fullccg.deaths / fullccg.incidences,
+         name: fullccg.name,
+         ccg: fullccg.ccg
+      }
+   })
+)
+
+db.comparison.find({},{name: 1, IMD: 1, mortalityRate: 1, _id: 0}).sort({mortalityRate: -1}).pretty()
+
+```
 
 If you have issues running Mongo in OS X (it sometimes complains about opening /data/db/mongod.lock), you may need to chown the dir. This is as simple as:
 `sudo chown -R `id -u` /data/db`

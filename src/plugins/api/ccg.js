@@ -49,7 +49,10 @@ export default function root(server) {
             ccg: ccg.ccg,
             mortalityRate: ccg.deaths / ccg.incidences,
             deaths: ccg.deaths,
-            incidences: ccg.incidences
+            incidences: ccg.incidences,
+            oneYearSurvivalRate: ccg.oneYearSurvivalRate,
+            specialist: ccg.specialist,
+            treatment: ccg.treatment
           };
         });
 
