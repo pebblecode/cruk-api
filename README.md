@@ -3,7 +3,7 @@ replace `CRUK API` with your project name
 
 <!-- [![npm version](https://badge.fury.io/js/node-starter-kit.svg)](http://badge.fury.io/js/node-starter-kit) -->
 
-[![Build Status](https://magnum.travis-ci.com/pebblecode/cruk-api.svg?token=F5kJ2zgCzNfgE9rzZNys)](https://travis-ci.org/pebblecode/node-starter-kit)
+[![Build Status](https://magnum.travis-ci.com/pebblecode/cruk-api.svg?token=F5kJ2zgCzNfgE9rzZNys&branch=master)](https://magnum.travis-ci.com/pebblecode/cruk-api)
 
 |-----|--------|----------------|----------------|
 |PATH | METHOD | Response       | Description    | 
