@@ -52,7 +52,8 @@ export default function root(server) {
             incidences: ccg.incidences,
             oneYearSurvivalRate: ccg.oneYearSurvivalRate,
             specialist: ccg.specialist,
-            treatment: ccg.treatment
+            treatment: ccg.treatment,
+            name: ccg.name
           };
         });
 
