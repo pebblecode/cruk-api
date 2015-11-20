@@ -15,3 +15,4 @@ const ccg = new Schema({
 const Ccg = mongoose.model('Ccg', ccg);
 
 export default Ccg;
+//db.ccgs.update({}, {$rename:{"ccg":"ccgCode"}},false,true)
