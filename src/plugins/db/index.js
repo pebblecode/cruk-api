@@ -12,7 +12,13 @@ export default function register(server, options, next) {
 
   const url = process.env.MONGOLAB_URI || 'mongodb://localhost/cruk';
 
-  mongoose.connect(url);
+  mongoose.connect(url, (err)=> {
+    if (err) {
+      logger('Failed to connect', err);
+    } else {
+      logger('connected');
+    }
+  });
 
   server.method('Ccg', Ccg);
   server.method('Fullccg', FullCcg);
